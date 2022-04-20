@@ -16,6 +16,8 @@ body {
   font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('https://previews.123rf.com/images/vectorwin/vectorwin1904/vectorwin190400144/122946185-vector-de-patrones-sin-fisuras-de-la-vida-animal-divertido-gato-linda-mascota-gatito-silueta-huella-.jpg');
+  background-blend-mode: darken;
 }
 
 .form-structor {
