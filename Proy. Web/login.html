@@ -1,73 +1,47 @@
 <!doctype html>
-<html>
-<head>
+<html lang="es">
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
-    <!-- Title Page -->  
-    <title>Login</title>
- 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="img/monkey_icon_126021 (1).ico">  
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="page.html">Mascotodo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="suscripción.html">Suscripcion</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="products.html">Productos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">Sobre nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Inicio sesion</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="registro.html">Registro</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="Buscar" placeholder="Buscar" aria-label="Buscar">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </body>
-<body  style="color: rgba(0, 0, 0, 0.87);">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
 
-    <h1><img src="img/monkey empresario.gif" width="320px" height="200px" alt=""></h1>
-    <div id="container">
-        <form>
-            <!-- Username -->
-            <label for="name">Usuario:</label>
-            <input type="name">
-            <!-- Password -->
-            <label for="username">Contraseña:</label>
-            <p><a href="#">¿Se te olvido la contraseña?</a>
-            <input type="password">
-            <div id="lower">
-                <input type="checkbox"><label class="check" for="checkbox">Recuerdame</label>
-                <!-- Submit Button -->
-                <input type="submit" value="Login">
-            </div>
-        </form>       
+    <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
+
+    <style>
+      body{
+        background-color: #cdf5ee;
+      }
+    </style>
+    
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form>
+    <img class="mb-4" src="img/pug_dog_animal_15965.ico" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>
+
+    <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Correo electrónico</label>
     </div>
-</body>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Contraseña</label>
+    </div>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Recuérdame
+      </label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Loguéate</button>
+    <p class="mt-5 mb-3 text-muted">¿No tienes cuenta? <a href="registro.html">¡Regístrate!</a></p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022–2022</p>
+  </form>
+</main>
+  </body>
 </html>
