@@ -39,10 +39,6 @@ body{
 		rgb(59, 130, 246), rgb(147, 51, 234));
 }
 
-footer{
-	min-height: 10rem;
-	
-}
 .carousel-inner img {
     width: 150%;
     max-height: 500px;
@@ -88,3 +84,20 @@ footer{
 
 }
 
+.navbar{
+    display: flex;
+    
+}
+
+.nav-item{
+    display: flex;
+}
+
+.nav-link{
+    padding-right: 8px;
+}
+
+footer{
+	min-height: 10rem;
+	
+}
