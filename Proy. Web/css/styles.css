@@ -21,7 +21,6 @@ body{
   }
 
 /* Scroll bar en gradiente */
-
 /*Ancho*/
 ::-webkit-scrollbar{
 	width: 12px;
@@ -81,10 +80,8 @@ footer{
     width: 100%;
     padding: 8px 0;
     background: #2d3e50;
-
     color: #fff;
     text-align: center;
     text-decoration: none;
-
 }
 
