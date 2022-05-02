@@ -47,6 +47,10 @@ body{
  height: 500px;
 }
 
+.navbar-brand {
+    display: flex;
+}
+
 .products-list{ /*18%+82%** hacia abajo */
     width:82%;
     display: flex;
@@ -79,19 +83,6 @@ body{
     color: #fff;
     text-align: center;
     text-decoration: none;
-}
-
-.navbar{
-    display: flex;
-    
-}
-
-.nav-item{
-    display: flex;
-}
-
-.navbar-brand {
-    display: flex;
 }
 
 footer{
