@@ -90,8 +90,8 @@ body{
     display: flex;
 }
 
-.nav-link{
-    padding-right: 8px;
+.navbar-brand {
+    display: flex;
 }
 
 footer{
