@@ -1,15 +1,25 @@
 <head>
-	<link rel="stylesheet" href="css/login.css">
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/login.css">
+	<script>
+		function validEmail(form) {
+		Ctrl = form.campo1;
+		if (Ctrl.value == "" || Ctrl.value.indexOf ('@', 0) == -1) {
+			validatePrompt (Ctrl, "Ingresa un correo")
+			return (false);
+		} else
+			return (true);
+		}
+	</script>
 </head>
 <div class="form-structor">
 	<div class="signup">
 		<h2 class="form-title" id="signup"><span>...o</span>Regístrate</h2>
 		<div class="form-holder">
-			<input type="text" class="input" placeholder="Nombre" />
-			<input type="email" class="input" placeholder="Email" />
-			<input type="password" class="input" placeholder="Contraseña" />
+			<input type="text" class="input" name="Nombre" />
+			<input type="email" class="input" name="Email" />
+			<input type="password" class="input" name="Contraseña" />
 		</div>
 		<button class="submit-btn">Registrarse</button>
 	</div>
@@ -17,8 +27,8 @@
 		<div class="center">
 			<h2 class="form-title" id="login"><span>o</span>Inicia sesión</h2>
 			<div class="form-holder">
-				<input type="email" class="input" placeholder="Email" />
-				<input type="password" class="input" placeholder="Contraseña"/>
+				<input type="email" class="input" name="Email" />
+				<input type="password" class="input" name="Contraseña" />
 			</div>
 			<button class="submit-btn">Iniciar sesión</button>
 		</div>
