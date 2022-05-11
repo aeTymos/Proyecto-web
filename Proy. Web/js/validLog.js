@@ -1,33 +1,23 @@
-function validNombre(form) {
-	Ctrl = form.username;
-	if (Ctrl.value.length == "") {
-		validatePrompt (Ctrl, "Ingresa un nombre de usuario.")
-		return (false);
-	} else
-		return (true);
-}
-function validPass(form) {
-	Ctrl = form.password;
-	if (Ctrl.value.length == "") {
-		validatePrompt (Ctrl, "Ingresa una contraseña.")
-		return (false);
-	} else
-		return (true);
-}
+function validar(){
+	var todo_correcto = true;
 
-function validaMail(input) {
-	if (input.value == "" || input.value.indexOf('@', 0) == -1) {
-	  input.setCustomValidity('"' + input.value + '" no es un correo válido.');
-	} else {
-	  input.setCustomValidity('');
+	if(document.getElementById('username').value.length < 4 || document.getElementById('username') == ''){
+		todo_correcto = false;
 	}
-  }
- 
-  function valida_envia(){
-	//valido el nombre
-	if (document.registro.email.value.length==0 || document.getElementById('correo').indexOf ){
-		   alert("Ingresa un correo válido")
-		   document.fvalida.nombre.focus()
-		   return 0;
+
+	var expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+	var email = document.form.email.value;
+	if (!expresion.test(email)){
+		todo_correcto = false;
 	}
-}
+
+	if(document.getElementById('password').value == ''){
+		todo_correcto = false;
+	}
+
+	if(!todo_correcto){
+	alert('Algunos campos no están correctos, vuelva a revisarlos');
+	}
+	
+	return todo_correcto;
+	}

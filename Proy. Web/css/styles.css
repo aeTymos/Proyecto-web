@@ -1,9 +1,7 @@
-html, body{
+body{
 	background-color: #cdf5ee;
 	min-height: 75rem;
 	border: #1f2937;
-    padding-left: 5rem;
-    padding-right: 5rem;
 }
 
 *{ /*Para evitar que las dimensiones se alteren al cargar bordes, rellenos etc..*/
