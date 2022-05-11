@@ -1,12 +1,4 @@
-function validEmail(form) {
-	Ctrl = form.email;
-	if (Ctrl.value == "" || Ctrl.value.indexOf ('@', 0) == -1) {
-		validatePrompt (Ctrl, "Ingresa un correo válido.")
-		return (false);
-	} else
-		return (true);
-}
-function validNombre(form) {
+/*function validaNombre(form) {
 	Ctrl = form.username;
 	if (Ctrl.value.length == "") {
 		validatePrompt (Ctrl, "Ingresa un nombre de usuario.")
@@ -14,7 +6,7 @@ function validNombre(form) {
 	} else
 		return (true);
 }
-function validPass(form) {
+function validaPass(form) {
 	Ctrl = form.password;
 	if (Ctrl.value.length == "") {
 		validatePrompt (Ctrl, "Ingresa una contraseña.")
@@ -22,4 +14,13 @@ function validPass(form) {
 	} else
 		return (true);
 }
-
+*/
+function validaMail(input) {
+	if (input.value == "" || input.value.indexOf('@', 0) == -1) {
+	  input.setCustomValidity('"' + input.value + '" no es un correo válido.');
+	} else {
+	  input.setCustomValidity('');
+	}
+  }
+ 
+ 
