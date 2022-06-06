@@ -13,11 +13,17 @@ class Ciudad(models.Model):
     nombre_ciudad = models.CharField(max_length=40)
     region_id_region = models.ForeignKey('Region', models.CASCADE, db_column='region_id_region')
 
+    def __str__(self):
+        return self.nombre_ciudad
+
 
 class Comuna(models.Model):
     id_comuna = models.AutoField(primary_key=True)
     nombre_comuna = models.CharField(max_length=40)
     ciudad_id_ciudad = models.ForeignKey(Ciudad, models.CASCADE, db_column='ciudad_id_ciudad')
+    
+    def __str__(self):
+        return self.nombre_comuna
 
 
 class DetallePedido(models.Model):
@@ -39,6 +45,9 @@ class Pedido(models.Model):
                          related_name='idUsuarioEnPedido')
     usuario_comuna_id_comuna = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_comuna_id_comuna', 
                                related_name='idComunaEnUsuario')
+    
+    def __str__(self):
+        return self.id_pedido
 
 
 class Producto(models.Model):
@@ -52,15 +61,27 @@ class Producto(models.Model):
     tipo_producto_id_tiproducto = models.ForeignKey('TipoProducto', models.CASCADE, db_column='tipo_producto.id_tiproducto')
 
 
+    def __str__(self):
+        return self.nombre_producto
+
+
 class Region(models.Model):
     id_region = models.AutoField(primary_key=True)
     nombre_region = models.CharField(max_length=50)
+
+
+    def __str__(self):
+        return self.nombre_region
 
 
 class TipoProducto(models.Model):
     id_tiproducto = models.AutoField(primary_key=True)
     nombre_tiproducto = models.CharField(max_length=20)
     descrip_tiproducto = models.CharField(max_length=200)
+
+
+    def __str__(self):
+        return self.nombre_tiproducto
 
 
 class Usuario(models.Model):
@@ -73,3 +94,6 @@ class Usuario(models.Model):
     fono_usuario = models.CharField(max_length=12)
     comuna_id_comuna = models.ForeignKey(Comuna, models.CASCADE, db_column='comuna_id_comuna')
 
+
+    def __str__(self):
+        return self.nombre_usuario
