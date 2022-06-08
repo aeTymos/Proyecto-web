@@ -2,122 +2,22 @@
 {% load static %}
 
 {% block contenido %}
-<div class="container">   
-  <div class="card-group mt-3">
-
-    <div class="card text-center border-info">
-      <div class="card-body">
-        <h4 class="card-title">Platos</h4>
-        <img src="{% static 'img/platos.jpg' %}" alt="Mascotodo" width="165px">
-        <p class="card text">$8990</p>
-        <a href="#" class="btn btn-primary">Añadir a carro</a>
-      </div>
-    </div>          
-
-    <div class="card text-center border-info">
-      <div class="card-body">
-        <h4 class="card-title">Juguetes</h4>
-        <img src="{% static 'img/juguete.jpg' %}" alt="Mascotodo" width="165px">
-        <p class="card text">$2990</p>
-        <a href="#" class="btn btn-primary">Añadir a carro</a>
-      </div>
-    </div>          
-
-    <div class="card text-center border-info">
-      <div class="card-body">
-        <h4 class="card-title">Correas</h4>
-        <img src="{% static 'img/correa3.jpg' %}" alt="Mascotodo" width="165px">
-        <p class="card text">$19990</p>
-        <a href="#" class="btn btn-primary">Añadir a Carro</a>
-      </div>
-    </div>
-    
-    <div class="card text-center border-info">
-      <div class="card-body">
-        <h4 class="card-title">Alimento</h4>
-        <img src="{% static 'img/Alimento.jpg' %}" alt="Mascotodo" width="165px">
-        <p class="card text">$22990</p>
-        <a href="#" class="btn btn-primary">Añadir a Carro</a>
-      </div>
-    </div>
-
-  <div class="container">   
-    <div class="card-group mt-3"> 
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Ropa</h4>
-          <img src="{% static 'img/Ropa-adidog-pet.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$5990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div> 
-
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Bosal</h4>
-          <img src="{% static 'img/Bosal.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$12990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div> 
-
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">collar</h4>
-          <img src="{% static 'img/collar_1.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$3990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div> 
-
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Casa para perros</h4>
-          <img src="{% static 'img/Casa.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$59990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div> 
-
-  <div class="container">   
-     <div class="card-group mt-3"> 
-       
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Guante para pelos</h4>
-          <img src="{% static 'img/Guante.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$5990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div> 
-
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Cama</h4>
-          <img src="{% static 'img/Cama.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$29990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div>
+<div class="container">
+  {% for p in productos %}   
+    <div class="card-group mt-3">
       
       <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Shampo</h4>
-          <img src="{% static 'img/shampo.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$7990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
-        </div>
-      </div> 
 
-      <div class="card text-center border-info">
-        <div class="card-body">
-          <h4 class="card-title">Bolso</h4>
-          <img src="{% static 'img/bolso.jpg' %}" alt="Mascotodo" width="165px">
-          <p class="card text">$35990</p>
-          <a href="#" class="btn btn-primary">Añadir a Carro</a>
+          <div class="card-body">
+            <h4 class="card-title">Platos</h4>
+            <img src="{% static 'img/platos.jpg' %}" alt="Mascotodo" width="165px">
+            <p class="card text">$8990</p>
+            <a href="#" class="btn btn-primary">Añadir a carro</a>
+          </div>
+        
         </div>
-      </div> 
-      
-  </div>
+
+    </div>
+    {% endfor %}
 </div> 
 {% endblock %}
