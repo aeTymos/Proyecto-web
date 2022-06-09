@@ -1,0 +1,23 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block contenido %}
+<div class="container">
+  {% for p in productos %}   
+    <div class="card-group mt-3">
+      
+      <div class="card text-center border-info">
+
+          <div class="card-body">
+            <h4 class="card-title">Platos</h4>
+            <img src="{% static 'img/platos.jpg' %}" alt="Mascotodo" width="165px">
+            <p class="card text">$8990</p>
+            <a href="#" class="btn btn-primary">Añadir a carro</a>
+          </div>
+        
+        </div>
+
+    </div>
+    {% endfor %}
+</div> 
+{% endblock %}

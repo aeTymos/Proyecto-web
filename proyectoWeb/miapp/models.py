@@ -41,9 +41,9 @@ class Pedido(models.Model):
     correo_pedido = models.CharField(max_length=50)
     fecha_pedido = models.DateField()
     estado_pedido = models.CharField(max_length=20)
-    usuario_id_usuario = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_id_usuario', 
+    id_usuario = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_id_usuario', 
                          related_name='idUsuarioEnPedido')
-    usuario_comuna_id_comuna = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_comuna_id_comuna', 
+    id_comuna = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_comuna_id_comuna', 
                                related_name='idComunaEnUsuario')
     
     def __str__(self):
@@ -58,7 +58,8 @@ class Producto(models.Model):
     precio_producto = models.IntegerField()
     stock_producto = models.CharField(max_length=40)
     fecha_agregado = models.DateField()
-    tipo_producto_id_tiproducto = models.ForeignKey('TipoProducto', models.CASCADE, db_column='tipo_producto.id_tiproducto')
+    miniatura = models.ImageField(upload_to='products', null=True)
+    id_tiproducto = models.ForeignKey('TipoProducto', models.CASCADE, db_column='tipo_producto.id_tiproducto')
 
 
     def __str__(self):

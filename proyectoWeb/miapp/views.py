@@ -1,25 +1,29 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from miapp.models import Region, Ciudad, Comuna, Usuario, Pedido, Producto, DetallePedido, TipoProducto
+from miapp.models import Producto
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'app/index.html')
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'app/about.html')
 
 def products(request):
-    return render(request, 'products.html')
+    productos = Producto.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'app/products.html', data)
 
 def suscripcion(request):
-    return render(request, 'suscripcion.html')
+    return render(request, 'app/suscripcion.html')
 
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'app/login.html')
 
 def error(request):
-    return render(request, 'error.html')
+    return render(request, 'app/error.html')
 
 def cart(request):
-    return render(request, 'cart.html')
+    return render(request, 'app/cart.html')
