@@ -10,11 +10,11 @@
       <div class="card text-center border-info">
 
           <div class="card-body">
-            <h4 class="card-title">{{ p.nombre_producto | capfirst }}</h4>
+            <h4 class="card-title">{{ p.nombre | capfirst }}</h4>
             {% if p.miniatura  %}
-            <img src="{{ p.miniatura.url }}" alt="Mascotodo" width="165px">
+              <img src="{{ p.miniatura.url }}" alt="Mascotodo" width="165px">
             {% endif %}
-            <p class="card text">${{ p.precio_producto | intcomma }}</p>
+            <p class="card text">${{ p.precio | intcomma }}</p>
             <a href="#" class="btn btn-primary">Añadir a carro</a>
           </div>
         

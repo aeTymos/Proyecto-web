@@ -1,5 +1,5 @@
 body{
-	background-color: #cdf5ee;
+	background-color: #e7f9f6;
 	min-height: 75rem;
 	border: #1f2937;
 }
@@ -77,6 +77,15 @@ body{
     color: #fff;
     text-align: center;
     text-decoration: none;
+}
+
+.center{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto; 
+    padding-left: 3.5rem; 
+    padding-right: 3.5rem;
 }
 
 /*Media queries*/
