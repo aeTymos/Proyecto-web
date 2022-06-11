@@ -1,13 +1,26 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from miapp.models import Producto
+from .forms import ContactForm
 
 # Create your views here.
 def index(request):
     return render(request, 'app/index.html')
 
 def about(request):
-    return render(request, 'app/about.html')
+    data = {
+        'form': ContactForm()
+    }
+    
+    if request.method == 'POST':
+        formulario = ContactForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = 'Contacto guardado'
+        else:
+            data['form'] = formulario
+
+    return render(request, 'app/about.html', data)
 
 def products(request):
     productos = Producto.objects.all()
