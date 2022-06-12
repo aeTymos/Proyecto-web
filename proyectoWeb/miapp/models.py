@@ -57,7 +57,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=200)
     precio = models.IntegerField()
-    stock = models.CharField(max_length=40)
+    stock = models.IntegerField()
     fecha_agregado = models.DateField()
     miniatura = models.ImageField(upload_to='products', null=True)
     tipo_de_producto = models.ForeignKey('TipoProducto', models.CASCADE, db_column='tipo_producto.id_tiproducto')

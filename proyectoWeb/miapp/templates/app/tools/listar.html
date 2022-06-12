@@ -1,5 +1,27 @@
 {% extends 'app/base.html' %}
 
+{% block js %}
+<!-- Script de SweetAlert que pregunta por la confirmación y eliminación de un producto -->
+<script>
+    function eliminarProducto(id){
+        Swal.fire({
+            'title': '¿Estás seguro?',
+            'text': 'Esta opción no puede deshacerse',
+            'icon': 'question',
+            'showCancelButton': true,
+            'cancelButtonText': 'Cancelar',
+            'confirmButtonText': 'Sí, eliminar',
+            'confirmButtonColor': '#dc3545'
+        })
+        .then(function(result) {
+            if(result.isConfirmed){
+                window.location.href = '/eliminar-producto/'+id+'/'
+            }
+        })
+    }
+</script>
+{% endblock %}
+
 {% block contenido %}
 {% load humanize %}
 <br><br>
@@ -19,24 +41,30 @@
                     <th>Opciones</th>
                 </tr>
             
-                {% for p in productos %}
+                {% for p in entity %}
             
                 <tr>
                     <td>{{ p.sku }}</td>
                     <td>{{ p.nombre | title }}</td>
                     <td>${{ p.precio | intcomma }}</td>
-                    <td>{{ p.stock }}</td>
+                    <td>{{ p.stock }} unidades</td>
                     <td>{{ p.fecha_agregado }}</td>
                     <td>{{ p.tipo_de_producto | title }}</td>
                     <td>
-                        <a href="{% url 'modificar_producto' p.id_producto %}" class="btn btn-primary">Modificar</a>
+                        <a href="{% url 'modificar_producto' p.id_producto %}" class="btn btn-primary btn-sm">Modificar</a>
+                        <!-- No preocuparse por el error de abajo.-->
+                        <!-- Visual Studio no reconoce la sintáxis combinada de Django y JavaScript, pero funciona-->
+                        <a href="#" onclick="eliminarProducto({{ p.id_producto }})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
             
                 {% endfor %}
             
             </table>
-            
+            <hr>
+            <div>
+                {% include 'app/paginator.html' %}
+            </div>
         </div>
     </div>
 </div>
