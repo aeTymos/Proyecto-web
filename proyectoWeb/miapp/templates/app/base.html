@@ -48,8 +48,12 @@
                 Herramientas
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if perms.miapp.add_producto %}
                 <li><a href="{% url 'agregar_producto' %}" class="dropdown-item" >Agregar</a></li>
+                {% endif %}
+                {% if perms.miapp.view_producto %}
                 <li><a href="{% url 'listar_productos'%}" class="dropdown-item">Listar</a></li>
+                {% endif %}
               </ul>
           </ul>
           <form class="d-flex">
@@ -62,9 +66,21 @@
                 <i class="fa fa-shopping-cart"> Ver carrito</i>
               </a>
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ user.username }}
+              </a>
+              <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <li><a href="#" class="dropdown-item" >Ver perfil</a></li>
+                <li><a href="{% url 'logout' %}" class="dropdown-item" >Cerrar sesión</a></li>
+              </ul>
+            </li>
+            {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
