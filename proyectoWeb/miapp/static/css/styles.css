@@ -4,6 +4,11 @@ body{
 	border: #1f2937;
 }
 
+.card {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 *{ /*Para evitar que las dimensiones se alteren al cargar bordes, rellenos etc..*/
     margin: 0;
     padding: 0;

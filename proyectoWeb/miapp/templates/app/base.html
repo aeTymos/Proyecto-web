@@ -56,7 +56,10 @@
                 <li><a href="{% url 'listar_productos'%}" class="dropdown-item">Listar</a></li>
                 {% endif %}
               </ul>
-            {% endif %}  
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'adopta' %}">Adopta</a>
+            </li>  
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
@@ -99,7 +102,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {% if messages %}
       {% for m in messages %}
-        {<script>
+        <script>
             Swal.fire({
               'title': 'Felicitaciones',
               'text': '{{m}}',
@@ -111,6 +114,7 @@
 
     {% block js %}
     {% endblock %}
+
   </body>
   <footer class="text-center text-lg-start bg-light text-muted">
     <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom">
