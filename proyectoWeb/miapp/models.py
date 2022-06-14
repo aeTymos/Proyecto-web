@@ -9,6 +9,7 @@ from django.db import models
 from django.forms import CharField, EmailField, IntegerField
 
 
+
 class Ciudad(models.Model):
     id_ciudad = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=40)
@@ -115,3 +116,7 @@ class Contacto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
+
+    

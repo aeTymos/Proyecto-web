@@ -1,0 +1,23 @@
+{% extends "app/base.html" %} 
+{% load static %}
+
+{% block js %}
+<script src="{% static '/js/dogapi.js' %}"></script>
+{% endblock %}
+
+{% block contenido %}
+</div>
+<div class="container col-12">
+    <hr>
+       <h2>Perros que buscan un hogar</h2>
+                <div class="results">
+                  <div id="dog_result" class="result">
+                    <p>Random Dog Placeholder</p>
+                  </div>
+                </div>
+               <div class="buttons">
+                <button id="dog_btn">Mostrar perrito</button>
+              </div> 
+           </div>
+  </div>
+{% endblock %}
