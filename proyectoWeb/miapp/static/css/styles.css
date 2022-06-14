@@ -100,3 +100,23 @@ body{
     }
   }
 
+.fetch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dogfetch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    height: 600px;
+    width: 400px;
+}
+
+.dogfetch img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}

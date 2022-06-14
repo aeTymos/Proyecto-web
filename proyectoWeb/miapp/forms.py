@@ -2,7 +2,7 @@ from django import forms
 from .models import Contacto, Producto
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .validators import MaxSizeFileValidator
+from .validators import MaxSizeFileValidator, noFechaFuturo
 from django.forms import ValidationError
 
 class ContactForm(forms.ModelForm):
@@ -16,6 +16,7 @@ class ProductoForm(forms.ModelForm):
     nombre = forms.CharField(min_length=5, max_length=30)
     descripcion = forms.CharField(min_length=10, max_length= 80)
     precio = forms.IntegerField(min_value=1, max_value=200000)
+    fecha_agregado = forms.DateField()
     miniatura = forms.ImageField(required=False, validators=[MaxSizeFileValidator(max_file_size=2)])
 
     def clean_nombre(self):
