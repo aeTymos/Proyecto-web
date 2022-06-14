@@ -1,23 +1,27 @@
 {% extends "app/base.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block contenido %}
+<br>
 <div class="container">
   {% for p in productos %}   
     <div class="card-group mt-3">
-      
       <div class="card text-center border-info">
 
           <div class="card-body">
-            <h4 class="card-title">Platos</h4>
-            <img src="{% static 'img/platos.jpg' %}" alt="Mascotodo" width="165px">
-            <p class="card text">$8990</p>
+            <h4 class="card-title">{{ p.nombre | capfirst }}</h4>
+            {% if p.miniatura  %}
+              <img src="{{ p.miniatura.url }}" alt="Mascotodo" width="165px">
+            {% endif %}
+            <p class="card text">${{ p.precio | intcomma }}</p>
             <a href="#" class="btn btn-primary">Añadir a carro</a>
           </div>
         
         </div>
-
     </div>
     {% endfor %}
-</div> 
+</div>
+<hr>
+<br><br> 
 {% endblock %}

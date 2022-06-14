@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import index, about, products, suscripcion, login, error
+from .views import eliminarProducto, index, about, modificarProducto, products, suscripcion, login, error, agregarProducto, listarProductos, registro
 
 #Solo en debug
 from django.conf import settings
@@ -28,6 +28,11 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('login/', login, name='login'),
     path('404', error, name='error'),
+    path('agregar-producto/', agregarProducto, name='agregar_producto'),
+    path('listar-productos/', listarProductos, name='listar_productos'),
+    path('modificar-producto/<id>/', modificarProducto, name='modificar_producto'),
+    path('eliminar-producto/<id>/', eliminarProducto, name='eliminar_producto'),
+    path('registro/', registro, name='registro'),
 ]
 
 if settings.DEBUG:
