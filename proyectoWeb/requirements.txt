@@ -2,3 +2,6 @@ django == 4.0.4
 pillow
 django-admin-interface
 crispy-bootstrap5
+cx_oracle
+python-dotenv
+djangorestframework

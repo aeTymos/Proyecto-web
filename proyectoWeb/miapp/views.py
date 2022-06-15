@@ -135,6 +135,5 @@ def registro(request):
     return render(request, 'registration/registro.html', data)
 
 
-
 def adopta(request):
     return render(request, 'app/adopta.html')
