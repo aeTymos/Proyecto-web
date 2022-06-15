@@ -1,5 +1,4 @@
 from django.forms import ValidationError
-from datetime import date
 
 class MaxSizeFileValidator:
 
@@ -14,8 +13,3 @@ class MaxSizeFileValidator:
             raise ValidationError('El tamaño máximo del archivo debe ser de {}Mb'.format(self.max_file_size))
         
         return value
-
-def noFechaFuturo(value):
-    hoy = date.today()
-    if value > hoy:
-        raise ValidationError('La fecha de agregado no puede ser un día en el futuro') 
