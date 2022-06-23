@@ -4,4 +4,4 @@ django-admin-interface
 crispy-bootstrap5
 cx_oracle
 python-dotenv
-djangorestframework
+django-rest-framework

@@ -14,12 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from .views import eliminarProducto, index, about, modificarProducto, products, suscripcion, login, error, agregarProducto, listarProductos, registro, adopta
-
+from django.urls import path, include
+from .views import eliminarProducto, index, about, modificarProducto, products, suscripcion, login, error,\
+     agregarProducto, listarProductos, registro, adopta, ProductoViewSet, CategoriaViewSet
+from rest_framework import routers
 #Solo en debug
 from django.conf import settings
 from django.conf.urls.static import static
+
+router = routers.DefaultRouter()
+router.register('producto', ProductoViewSet)
+router.register('categoria', CategoriaViewSet)
 
 urlpatterns = [
     path('', index, name='index'),
@@ -34,6 +39,7 @@ urlpatterns = [
     path('eliminar-producto/<id>/', eliminarProducto, name='eliminar_producto'),
     path('registro/', registro, name='registro'),
     path('adopta/', adopta, name='adopta'),
+    path('api/', include(router.urls)),
 ]
 
 if settings.DEBUG:

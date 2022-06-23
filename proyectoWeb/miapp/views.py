@@ -1,11 +1,13 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from miapp.models import Producto
+from miapp.models import Producto, TipoProducto
 from .forms import ContactForm, ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
+from rest_framework import viewsets
+from .serializers import CategoriaSerializer, ProductoSerializer
 
 # Create your views here.
 def index(request):
@@ -137,3 +139,22 @@ def registro(request):
 
 def adopta(request):
     return render(request, 'app/adopta.html')
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = TipoProducto.objects.all()
+    serializer_class = CategoriaSerializer
+
+class ProductoViewSet(viewsets.ModelViewSet):
+
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+    def get_queryset(self):
+        productos = Producto.objects.all()
+
+        nombre = self.request.GET.get('nombre')
+
+        if nombre:
+            productos = productos.filter(nombre__contains=nombre)
+
+        return productos
