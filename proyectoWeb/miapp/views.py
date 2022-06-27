@@ -1,3 +1,4 @@
+from msilib.schema import ListView
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from miapp.models import Producto, TipoProducto
@@ -8,6 +9,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
 from .serializers import CategoriaSerializer, ProductoSerializer
+from django.views.generic import ListView
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -140,6 +143,7 @@ def registro(request):
 def adopta(request):
     return render(request, 'app/adopta.html')
 
+
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = TipoProducto.objects.all()
     serializer_class = CategoriaSerializer
@@ -158,3 +162,15 @@ class ProductoViewSet(viewsets.ModelViewSet):
             productos = productos.filter(nombre__contains=nombre)
 
         return productos
+
+#Filtro para el botón de busqueda
+class SearchResults(ListView):
+    model = Producto
+    template_name = 'app/products.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Producto.objects.filter(
+            Q(nombre__contains=query)
+        )
+        return object_list

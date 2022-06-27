@@ -13,7 +13,8 @@ class ProductoSerializer(serializers.ModelSerializer):
     nombre_categoria = serializers.CharField(read_only=True, source='tipo_de_producto.nombre')
     tipo_de_producto = CategoriaSerializer(read_only=True)  
     id_tiproducto = serializers.PrimaryKeyRelatedField(queryset=TipoProducto.objects.all(), source='tipo_de_producto')
-    #Validación dentro del formulario
+    
+    #Validación dentro del formulario de la API
     nombre = serializers.CharField(required=True, min_length=3)
 
     def validaNombre(self, value):

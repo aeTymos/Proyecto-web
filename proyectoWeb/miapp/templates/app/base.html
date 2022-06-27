@@ -63,8 +63,8 @@
               <a class="nav-link" href="{% url 'adopta' %}">Adopta</a>
             </li>  
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+          <form class="d-flex" action="{% url 'products' %}" method="get">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="q">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
           </form>
           <ul class="navbar-nav mb-2 mb-lg-0">
