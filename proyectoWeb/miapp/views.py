@@ -5,7 +5,7 @@ from miapp.models import Producto, TipoProducto
 from .forms import ContactForm, ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 from django.core.paginator import Paginator
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
 from .serializers import CategoriaSerializer, ProductoSerializer
@@ -132,8 +132,7 @@ def registro(request):
         if formulario.is_valid():
             formulario.save()
             user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
-            login(request, user)
-            messages.success(request, 'Tu registro se ha completado exitosamente')
+            dj_login(request, user)
             return redirect(to='index')
         data['form'] = formulario
 
@@ -171,6 +170,6 @@ class SearchResults(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Producto.objects.filter(
-            Q(nombre__contains=query)
+            Q(nombre__icontains=query)
         )
         return object_list
