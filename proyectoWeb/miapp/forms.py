@@ -7,6 +7,7 @@ from .validators import MaxSizeFileValidator
 from django.forms import ValidationError
 from datetime import date
 from django.utils.translation import gettext_lazy as _
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 class ContactForm(forms.ModelForm):
 
@@ -37,7 +38,7 @@ class ProductoForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'fecha_agregado': forms.SelectDateWidget()
+            'fecha_agregado': DatePickerInput()
         }
 
 class CustomUserCreationForm(UserCreationForm):

@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
 from .serializers import CategoriaSerializer, ProductoSerializer
+#Imports para buscar un producto
 from django.views.generic import ListView
 from django.db.models import Q
 
@@ -147,6 +148,7 @@ class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = TipoProducto.objects.all()
     serializer_class = CategoriaSerializer
 
+
 class ProductoViewSet(viewsets.ModelViewSet):
 
     queryset = Producto.objects.all()
@@ -170,6 +172,6 @@ class SearchResults(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Producto.objects.filter(
-            Q(nombre__icontains=query)
+            Q(nombre__contains=query)
         )
         return object_list
