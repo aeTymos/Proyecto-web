@@ -2,6 +2,8 @@ body{
 	background-color: #e7f9f6;
 	min-height: 100vh;
 	border: #1f2937;
+    background-image: url('https://previews.123rf.com/images/vectorwin/vectorwin1904/vectorwin190400144/122946185-vector-de-patrones-sin-fisuras-de-la-vida-animal-divertido-gato-linda-mascota-gatito-silueta-huella-.jpg');
+    background-blend-mode: darken;
 }
 
 .card {

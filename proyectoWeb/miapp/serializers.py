@@ -19,7 +19,6 @@ class ProductoSerializer(serializers.ModelSerializer):
     #Validación dentro del formulario de la API
     sku = serializers.CharField(required=True, max_length=12)
     nombre = serializers.CharField(required=True, min_length=3)
-    #fecha_agregado = serializers.DateField(validators=[MaxValueValidator(limit_value=date.today)])
 
     def validaNombre(self, value):
         existe = Producto.objects.filter(nombre__iexact=value).exists()

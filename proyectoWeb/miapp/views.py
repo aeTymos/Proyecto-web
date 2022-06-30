@@ -1,5 +1,4 @@
-from msilib.schema import ListView
-from django.http import Http404, HttpResponse
+from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from miapp.models import Producto, TipoProducto
 from .forms import ContactForm, ProductoForm, CustomUserCreationForm
@@ -9,8 +8,6 @@ from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
 from .serializers import CategoriaSerializer, ProductoSerializer
-#Imports para buscar un producto
-from django.views.generic import ListView
 from django.db.models import Q
 
 # Create your views here.
@@ -34,8 +31,14 @@ def about(request):
 
 def products(request):
     productos = Producto.objects.all()
-    page = request.GET.get('page', 1)
+    buscaProducto = request.GET.get('search')
+    if buscaProducto:
 
+        productos = Producto.objects.filter(Q(nombre__icontains=buscaProducto))
+    else:
+        productos
+
+    page = request.GET.get('page', 1)
     try:
         paginator = Paginator(productos, 5)
         productos = paginator.page(page)
@@ -163,15 +166,3 @@ class ProductoViewSet(viewsets.ModelViewSet):
             productos = productos.filter(nombre__contains=nombre)
 
         return productos
-
-#Filtro para el botón de busqueda
-class SearchResults(ListView):
-    model = Producto
-    template_name = 'app/products.html'
-
-    def get_queryset(self):
-        query = self.request.GET.get('q')
-        object_list = Producto.objects.filter(
-            Q(nombre__contains=query)
-        )
-        return object_list

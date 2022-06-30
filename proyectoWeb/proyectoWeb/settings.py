@@ -50,12 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'crispy_bootstrap5',
-    'bootstrap_datepicker_plus',
+    'bootstrap_datepicker_plus', #Proporciona Datepicker para el uso con jQuery
     'rest_framework',
     'rest_framework.authtoken',
 ]
-
-
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
