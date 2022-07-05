@@ -33,7 +33,6 @@ def products(request):
     productos = Producto.objects.all()
     buscaProducto = request.GET.get('search')
     if buscaProducto:
-
         productos = Producto.objects.filter(Q(nombre__icontains=buscaProducto))
     else:
         productos
@@ -145,12 +144,6 @@ def registro(request):
 
 def adopta(request):
     return render(request, 'app/adopta.html')
-
-
-class CategoriaViewSet(viewsets.ModelViewSet):
-    queryset = TipoProducto.objects.all()
-    serializer_class = CategoriaSerializer
-
 
 class ProductoViewSet(viewsets.ModelViewSet):
 

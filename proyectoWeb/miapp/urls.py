@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from .views import eliminarProducto, index, about, modificarProducto, products, suscripcion, login, error,\
-     agregarProducto, listarProductos, registro, adopta, ProductoViewSet, CategoriaViewSet
+     agregarProducto, listarProductos, registro, adopta, ProductoViewSet
 from rest_framework import routers
 #Solo en debug
 from django.conf import settings
@@ -23,7 +23,6 @@ from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register('producto', ProductoViewSet)
-router.register('categoria', CategoriaViewSet)
 
 urlpatterns = [
     path('', index, name='index'),

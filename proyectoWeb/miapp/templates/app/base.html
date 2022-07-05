@@ -13,6 +13,9 @@
     {% block css %}
     {% endblock %}
     <title>Mascotodo</title>
+    <script type="text/javascript">
+      let user = '{{ request.user }}'
+    </script>
   </head>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
@@ -115,7 +118,7 @@
 
     {% block js %}
     {% endblock %}
-
+    <script type="text/javascript" src="{% static '/js/cart.js' %}"></script>        
   </body>
   <footer class="text-center text-lg-start bg-light text-muted">
     <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom">

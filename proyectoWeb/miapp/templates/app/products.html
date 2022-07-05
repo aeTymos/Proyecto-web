@@ -15,7 +15,7 @@
               <img src="{{ p.miniatura.url }}" alt="Mascotodo" width="165px">
             {% endif %}
             <p class="card text">${{ p.precio | intcomma }}</p>
-            <a href="#" class="btn btn-primary">Añadir a carro</a>
+            <button data-producto="{{ p.id_producto }}" data-action="add" class="btn btn-primary add-btn update-cart">Añadir al carro</button>
           </div>
         
         </div>
