@@ -1,7 +1,5 @@
 from .models import Producto, TipoProducto
 from rest_framework import serializers
-from datetime import date
-from django.core.validators import MaxValueValidator
 
 class CategoriaSerializer(serializers.ModelSerializer):
 

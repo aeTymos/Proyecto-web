@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'crispy_bootstrap5',
-    'bootstrap_datepicker_plus', #Proporciona Datepicker para el uso con jQuery
+    'bootstrap_datepicker_plus', #Proporciona Datepicker para su uso con jQuery
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -92,21 +92,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'proyectoWeb.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'localhost:1521/xe',
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-    'NAME': 'xe',
-        'HOST': 'localhost',
-        'PORT': '1521',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'testdatabase.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

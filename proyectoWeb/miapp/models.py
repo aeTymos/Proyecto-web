@@ -6,27 +6,6 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from django.forms import CharField, EmailField, IntegerField
-
-
-
-class Ciudad(models.Model):
-    id_ciudad = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=40)
-    region = models.ForeignKey('Region', models.CASCADE, db_column='region_id_region')
-
-    def __str__(self):
-        return self.nombre
-
-
-class Comuna(models.Model):
-    id_comuna = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=40)
-    ciudad = models.ForeignKey(Ciudad, models.CASCADE, db_column='ciudad_id_ciudad')
-    
-    def __str__(self):
-        return self.nombre
-
 
 class DetallePedido(models.Model):
     costo_pedido = models.IntegerField()
@@ -45,8 +24,6 @@ class Pedido(models.Model):
     estado_pedido = models.CharField(max_length=20)
     usuario = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_id_usuario', 
                          related_name='idUsuarioEnPedido')
-    comuna = models.ForeignKey('Usuario', models.CASCADE, db_column='usuario_comuna_id_comuna', 
-                               related_name='idComunaEnUsuario')
     
     def __str__(self):
         return self.id_pedido
@@ -67,16 +44,6 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-
-class Region(models.Model):
-    id_region = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=50)
-
-
-    def __str__(self):
-        return self.nombre
-
-
 class TipoProducto(models.Model):
     id_tiproducto = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=20)
@@ -95,7 +62,6 @@ class Usuario(models.Model):
     direccion = models.CharField(max_length=60)
     dir_envio_default = models.CharField(max_length=60)
     fono_usuario = models.CharField(max_length=12)
-    comuna = models.ForeignKey(Comuna, models.CASCADE, db_column='comuna_id_comuna')
 
 
     def __str__(self):
