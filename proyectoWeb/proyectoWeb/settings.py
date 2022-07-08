@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'proyectoWeb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'localhost:1521/xe',
+        'NAME': 'localhost:1521/orcl',
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
-    'NAME': 'xe',
+    'NAME': 'orcl',
         'HOST': 'localhost',
         'PORT': '1521',
     }

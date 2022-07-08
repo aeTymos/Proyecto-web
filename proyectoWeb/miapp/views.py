@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
 from .serializers import CategoriaSerializer, ProductoSerializer
 from django.db.models import Q
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 def index(request):
@@ -149,6 +150,7 @@ class ProductoViewSet(viewsets.ModelViewSet):
 
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         productos = Producto.objects.all()
