@@ -1,7 +1,77 @@
 {% extends "app/base.html" %}
 {% load static %}
 {% load humanize %}
+{% block js%}
+<script src="{% static '/js/jquery-3.6.0.min.js' %}"></script>
+<script>
+function buscar() {
+  var buscador = $('#buscador').val().toLowerCase();
+  var not_found = true;
+  var listCategory = '';
+  $('.producto span').each(function () {
+      var name_products = $(this).text().toLowerCase();
+      if (name_products.indexOf(buscador) !== -1) {
+          var category_products = $(this).parents('.producto').attr('category');
+          $(this).parents('.producto').show();
+          not_found = false;
+          listCategory += ` ${category_products}`; 
+          //Concateno todo lo que se vaya a mostrar en una sola variable y la valido al final.
+      }
+      else {
+          $(this).parents('.producto').hide();
+      }
 
+      if (!not_found) {
+          $('#text').hide();
+      } else {
+          $('#text').show();
+          $('.btn-check').prop('checked', true);
+      }
+
+  });
+  if (listCategory.length > 0) {//Aqui hare la validación de tus checkbox
+      $('.btn-check').each(function () {
+          var check = $(this).attr('category');
+          if (listCategory.indexOf(check) !== -1) {
+              $(this).prop('checked', true);
+          } else {
+              $(this).prop('checked', false);
+          }
+      });
+  }
+}
+$('#buscador').on('keypress', function (e) {
+  if (e.keyCode == 13) {
+      buscar();
+  }
+});
+
+// Buscador //
+$('#button_search').on('click', function () {
+  buscar();
+});
+
+// Casillas checkbox //
+$('.btn-check').prop('checked', true);
+$('#apply_filter').on('click', function () {
+  $('.producto').hide();
+  $('.btn-check:checked').each(function () {
+      var input_category = $(this).attr('category');
+      $('.producto[category*="' + input_category + '"]').show();
+  });
+});
+
+$('#all').on('click', function () {
+
+  if ($('#all').is(':checked')) {
+      $('.btn-check:not(#all)').prop('checked', true);
+  } else if ($('#all').not(':checked')) {
+      $('.btn-check:not(#all)').prop('checked', false);
+  }
+
+});
+</script>
+{% endblock %}
 {% block contenido %}
 <br>
 <div class="container">
