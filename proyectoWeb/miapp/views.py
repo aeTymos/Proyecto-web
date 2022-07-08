@@ -1,13 +1,14 @@
-from django.http import Http404
+from this import d
+from django.http import Http404, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from miapp.models import Producto, TipoProducto
+from miapp.models import Producto
 from .forms import ContactForm, ProductoForm, CustomUserCreationForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login as dj_login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
-from .serializers import CategoriaSerializer, ProductoSerializer
+from .serializers import ProductoSerializer
 from django.db.models import Q
 
 # Create your views here.
@@ -61,7 +62,12 @@ def error(request):
     return render(request, 'app/error.html')
 
 def cart(request):
-    return render(request, 'app/cart.html')
+    data = {}
+    return render(request, 'app/cart.html', data)
+
+def checkout(request):
+    data = {}
+    return render(request, 'app/checkout.html', data)
 
 @permission_required('miapp.add_producto')
 def agregarProducto(request):

@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
-from .views import eliminarProducto, index, about, modificarProducto, products, suscripcion, login, error,\
-     agregarProducto, listarProductos, registro, adopta, ProductoViewSet
+from .views import eliminarProducto, index, about, modificarProducto, products, suscripcion, login,\
+     agregarProducto, listarProductos, registro, adopta, ProductoViewSet, cart, checkout 
 from rest_framework import routers
 #Solo en debug
 from django.conf import settings
@@ -28,9 +28,10 @@ urlpatterns = [
     path('', index, name='index'),
     path('suscripcion/', suscripcion, name='suscripcion'),
     path('products/', products, name='products'),
+    path('cart/', cart, name='cart'),
+    path('checkout/', checkout, name='checkout'),
     path('about/', about, name='about'),
     path('login/', login, name='login'),
-    path('404', error, name='error'),
     path('agregar-producto/', agregarProducto, name='agregar_producto'),
     path('listar-productos/', listarProductos, name='listar_productos'),
     path('modificar-producto/<id>/', modificarProducto, name='modificar_producto'),

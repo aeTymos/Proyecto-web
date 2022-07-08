@@ -8,7 +8,9 @@ for (var i = 0; i < updateBtns.length; i++) {
 
         console.log('USER: ', user);
         if (user === 'AnonymousUser') {
-            console.log('')
+            console.log('No ha iniciado sesión')
+        } else {
+            console.log('Usuario inició sesión, enviando datos...');
         }            
     });
 }
