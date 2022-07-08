@@ -6,3 +6,4 @@ cx_oracle
 python-dotenv
 django-rest-framework
 django-bootstrap-datepicker-plus
+django-simple-captcha

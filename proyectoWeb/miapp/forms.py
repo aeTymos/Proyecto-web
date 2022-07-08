@@ -8,6 +8,7 @@ from django.forms import ValidationError
 from datetime import date
 from django.utils.translation import gettext_lazy as _
 from bootstrap_datepicker_plus.widgets import DatePickerInput
+from captcha.fields import CaptchaField
 
 class ContactForm(forms.ModelForm):
 
@@ -42,6 +43,8 @@ class ProductoForm(forms.ModelForm):
         }
 
 class CustomUserCreationForm(UserCreationForm):
+
+    captcha = CaptchaField()
 
     class Meta:
         model = User

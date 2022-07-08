@@ -31,19 +31,8 @@
             <li class="nav-item active">
               <a class="nav-link " aria-current="page" href="{% url 'suscripcion' %}">Suscripción</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Productos
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{% url 'products' %}">Todo</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Platos de comida</a></li>
-                <li><a class="dropdown-item" href="#">Correas</a></li>
-                <li><a class="dropdown-item" href="#">Identificadores</a></li>
-                <li><a class="dropdown-item" href="#">Collares</a></li>
-              </ul>
-            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products' %}">Productos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">Sobre nosotros</a>
@@ -72,7 +61,7 @@
           </form>
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{% url 'cart' %}">
                 <i class="fa fa-shopping-cart"> Ver carrito</i>
               </a>
             </li>

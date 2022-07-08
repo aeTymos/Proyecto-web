@@ -47,10 +47,20 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'crispy_bootstrap5',
-    'bootstrap_datepicker_plus', 
+    'bootstrap_datepicker_plus',
+    'captcha', 
     'rest_framework',
     'rest_framework.authtoken',
 ]
+
+REST_FRAMEWORK = {
+    'default_pagination_class' : 'rest_framework.pagination.LimitOffsetPagination',
+    'page_size': 5,
+    'default_authentication_classes':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+
+}
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -88,22 +98,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'proyectoWeb.wsgi.application'
 
-rest_framewor = {
-    'default_pagination_class' : 'rest_framework.pagination.LimitOffsetPagination',
-    'page_size': 5,
-    'default_authentication_classes':[
-        'rest_framework.authentication.TokenAuthentication',
-    ]
-
-}
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'localhost:1521/orcl',
+        'NAME': 'localhost:1521/xe',
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
-    'NAME': 'orcl',
+    'NAME': 'xe',
         'HOST': 'localhost',
         'PORT': '1521',
     }

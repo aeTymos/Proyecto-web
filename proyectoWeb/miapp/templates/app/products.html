@@ -13,6 +13,8 @@
             <h4 class="card-title">{{ p.nombre | capfirst }}</h4>
             {% if p.miniatura  %}
               <img src="{{ p.miniatura.url }}" alt="Mascotodo" width="165px">
+            {% else %}
+              <img src="{% static '/img/Placeholder.png' %}" alt="Imágen placeholder">
             {% endif %}
             <p class="card text">${{ p.precio | intcomma }}</p>
             <button data-producto="{{ p.id_producto }}" data-action="add" class="btn btn-primary add-btn update-cart">Añadir al carro</button>

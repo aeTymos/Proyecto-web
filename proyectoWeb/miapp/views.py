@@ -140,6 +140,7 @@ def registro(request):
     if request.method == 'POST':
         formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
+            human = True
             formulario.save()
             user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data['password1'])
             dj_login(request, user)
