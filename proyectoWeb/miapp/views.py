@@ -1,4 +1,4 @@
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from miapp.models import Producto
 from .forms import ContactForm, ProductoForm, CustomUserCreationForm
@@ -10,6 +10,7 @@ from rest_framework import viewsets
 from .serializers import ProductoSerializer
 from django.db.models import Q
 from rest_framework.permissions import IsAuthenticated
+import json
 
 # Create your views here.
 def index(request):
@@ -63,6 +64,15 @@ def error(request):
 
 def cart(request):
     return render(request, 'app/cart.html')
+
+def actualizarProducto(request):
+    data = json.loads(request.body)
+    idProducto = data['idProducto']
+    action = data['action']
+
+    print('Action: ', action)
+    print('idProducto: ', idProducto)
+    return JsonResponse('Producto agregado.', safe=False)
 
 @permission_required('miapp.add_producto')
 def agregarProducto(request):

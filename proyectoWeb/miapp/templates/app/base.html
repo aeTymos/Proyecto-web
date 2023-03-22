@@ -14,7 +14,22 @@
     {% endblock %}
     <title>Mascotodo</title>
     <script type="text/javascript">
-      let user = '{{ request.user }}'
+      function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+      return cookieValue;
+      }
+      const csrftoken = getToken('csrftoken');
     </script>
   </head>
   <header>
@@ -38,10 +53,10 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'products' %}">Todo</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Platos de comida</a></li>
-                <li><a class="dropdown-item" href="#">Correas</a></li>
-                <li><a class="dropdown-item" href="#">Identificadores</a></li>
-                <li><a class="dropdown-item" href="#">Collares</a></li>
+                <li><a class="dropdown-item" href="{% url 'platos' %}">Platos de comida</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}">Correas</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}">Identificadores</a></li>
+                <li><a class="dropdown-item" href="{% url 'products' %}">Collares</a></li>
               </ul>
             </li>
             </li>
@@ -72,7 +87,7 @@
           </form>
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'error' %}">
+              <a class="nav-link" href="#">
                 <i class="fa fa-shopping-cart"> Ver carrito</i>
               </a>
             </li>
@@ -156,13 +171,13 @@
               Productos
             </h6>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Collares</a>
+              <a href="#" class="text-reset">Collares</a>
             </p>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Identificadores</a>
+              <a href="#" class="text-reset">Identificadores</a>
             </p>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Platos</a>
+              <a href="#" class="text-reset">Platos</a>
             </p>
           </div>
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -170,16 +185,16 @@
               links
             </h6>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Precios</a>
+              <a href="#" class="text-reset">Precios</a>
             </p>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Herramientas</a>
+              <a href="#" class="text-reset">Herramientas</a>
             </p>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Seguimiento</a>
+              <a href="#" class="text-reset">Seguimiento</a>
             </p>
             <p>
-              <a href="{% url 'error' %}" class="text-reset">Ayuda</a>
+              <a href="#" class="text-reset">Ayuda</a>
             </p>
           </div>
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
