@@ -1,4 +1,4 @@
-django == 4.2.1
+django == 4.2.3
 pillow
 django-admin-interface
 crispy-bootstrap5
